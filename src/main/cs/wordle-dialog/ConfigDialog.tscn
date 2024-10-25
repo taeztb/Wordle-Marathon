@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbgcr07wwai14"]
+
+[ext_resource type="Theme" uid="uid://qxhbpqwnda5" path="res://src/main/cs/wordle-dialog/themes/WordleDialog.tres" id="1_deulp"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-dialog/Dialog.cs" id="2_cq7jp"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-dialog/ConfigData.cs" id="3_ed0a8"]
+[ext_resource type="Texture2D" uid="uid://clin0j0lx7tfj" path="res://src/main/resources/icons/close-line.svg" id="3_jjifw"]
+[ext_resource type="FontFile" uid="uid://dr1j2r8o1j6yl" path="res://src/main/resources/fonts/KarnakPro-CondensedBlack.ttf" id="4_h3m5a"]
+[ext_resource type="FontFile" uid="uid://qjacn1t33u4d" path="res://src/main/resources/fonts/KarnakPro-Book.ttf" id="5_yr51l"]
+[ext_resource type="Texture2D" uid="uid://cp3ik0r2fvwa8" path="res://src/main/resources/icons/FBLA_Delta_Brandmark_color-LoRes.png" id="6_8pl4n"]
+[ext_resource type="FontFile" uid="uid://bew2q8agbxgkf" path="res://src/main/resources/fonts/LibreFranklin-Regular.ttf" id="7_lw1wt"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_y67wl"]
+color = Color(0.227451, 0.227451, 0.235294, 1)
+grow_begin = 2.0
+grow_end = 2.0
+thickness = 2
+
+[node name="ConfigDialog" type="PanelContainer"]
+top_level = true
+clip_contents = true
+custom_minimum_size = Vector2(780, 960)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -480.0
+offset_right = 390.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = ExtResource("1_deulp")
+script = ExtResource("2_cq7jp")
+
+[node name="ConfigData" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("3_ed0a8")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("3_jjifw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_deulp")
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_deulp")
+theme_override_constants/separation = 24
+
+[node name="Header" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_fonts/font = ExtResource("4_h3m5a")
+theme_override_font_sizes/font_size = 48
+text = "Config
+"
+
+[node name="SubTitle" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_fonts/font = ExtResource("5_yr51l")
+theme_override_font_sizes/font_size = 30
+text = "Wordle Game Settings."
+
+[node name="Body" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Margin" type="MarginContainer" parent="Margin/Content/Body"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Content/Body/Margin"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="Restart" type="Button" parent="Margin/Content/Body/Margin/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Restart"
+
+[node name="Reset" type="Button" parent="Margin/Content/Body/Margin/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Reset"
+
+[node name="Quit" type="Button" parent="Margin/Content/Body/Margin/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Quit
+"
+
+[node name="Item1" type="CheckButton" parent="Margin/Content/Body"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Multiplayer Mode! Can You Beat the Computer?"
+flat = true
+
+[node name="Item2" type="CheckButton" parent="Margin/Content/Body"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Option 2"
+flat = true
+
+[node name="Item3" type="CheckButton" parent="Margin/Content/Body"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = ExtResource("1_deulp")
+text = "Option 3"
+flat = true
+
+[node name="EndNote" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="TopBorder" type="Panel" parent="Margin/Content/EndNote"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_styles/panel = SubResource("StyleBoxLine_y67wl")
+
+[node name="Note" type="HBoxContainer" parent="Margin/Content/EndNote"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Content/EndNote/Note"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_8pl4n")
+expand_mode = 1
+
+[node name="NoteText" type="Label" parent="Margin/Content/EndNote/Note"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_fonts/font = ExtResource("7_lw1wt")
+text = "FBLA Computer Game & Simulation Programming."
+vertical_alignment = 1
+
+[node name="BottomBorder" type="Panel" parent="Margin/Content/EndNote"]
+layout_mode = 2
+theme = ExtResource("1_deulp")
+theme_override_styles/panel = SubResource("StyleBoxLine_y67wl")
+
+[node name="Footer2" type="RichTextLabel" parent="Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_deulp")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Missouri - Future Business Leaders of America | 2023 State Leadership Conference Project Submission | Lee's Summit North High School Chapter President Thomas Berhe."
+fit_content = true
+
+[connection signal="pressed" from="CloseButton" to="." method="_OnCloseButtonPressed"]
+[connection signal="pressed" from="Margin/Content/Body/Margin/Buttons/Restart" to="ConfigData" method="_OnRestartPressed"]
+[connection signal="pressed" from="Margin/Content/Body/Margin/Buttons/Reset" to="ConfigData" method="_OnResetPressed"]
+[connection signal="pressed" from="Margin/Content/Body/Margin/Buttons/Quit" to="ConfigData" method="_OnQuitPressed"]

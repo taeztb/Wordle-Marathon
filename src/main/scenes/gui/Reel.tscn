@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/main/cs/Reel.cs" id="1_rf5a3"]
+
+[node name="Reel" type="VBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_right = 67.5
+offset_bottom = 45.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+script = ExtResource("1_rf5a3")

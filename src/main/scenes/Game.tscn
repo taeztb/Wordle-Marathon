@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/main/cs/wordle-logic/Game.cs" id="1_f6hw6"]
+[ext_resource type="PackedScene" uid="uid://dbdpnrr86st4g" path="res://src/main/cs/wordle-nav/NavBar.tscn" id="2_cp5q2"]
+[ext_resource type="PackedScene" uid="uid://c53qvfub5nnfd" path="res://src/main/cs/wordle-ai/WordleAI.tscn" id="2_q0ig2"]
+[ext_resource type="PackedScene" path="res://src/main/cs/wordle-ui/Grid.tscn" id="2_tbpjr"]
+[ext_resource type="PackedScene" path="res://src/main/scenes/gui/Reel.tscn" id="3_7ajsu"]
+
+[node name="WordleGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6hw6")
+
+[node name="WordleAI" parent="." instance=ExtResource("2_q0ig2")]
+layout_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+
+[node name="NavBar" parent="Content" instance=ExtResource("2_cp5q2")]
+layout_mode = 2
+
+[node name="Grid" parent="Content" instance=ExtResource("2_tbpjr")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 108
+
+[node name="Reel" parent="Margin" instance=ExtResource("3_7ajsu")]
+layout_mode = 2

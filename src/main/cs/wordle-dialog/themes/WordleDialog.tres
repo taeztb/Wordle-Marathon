@@ -1,0 +1,110 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://qxhbpqwnda5"]
+
+[ext_resource type="FontFile" uid="uid://bn0r5u2fxfvxn" path="res://src/main/resources/fonts/LibreFranklinBold.ttf" id="1_43g67"]
+[ext_resource type="Texture2D" uid="uid://dkwtjensxk0i0" path="res://src/main/resources/icons/ticket-check-line.svg" id="2_lkgl5"]
+[ext_resource type="FontFile" uid="uid://bew2q8agbxgkf" path="res://src/main/resources/fonts/LibreFranklin-Regular.ttf" id="2_wb0k0"]
+[ext_resource type="Texture2D" uid="uid://bgmwc2kubqsn0" path="res://src/main/resources/icons/ticket-line.svg" id="3_muglc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yk41"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.321569, 0.552941, 0.301961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq8p8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.227451, 0.227451, 0.235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dlxq"]
+bg_color = Color(0.321569, 0.552941, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.227451, 0.227451, 0.235294, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p00yi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcl5r"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 200.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxius"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.101961, 0.101961, 0.101961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_43g67")
+Button/styles/hover = SubResource("StyleBoxFlat_3yk41")
+Button/styles/normal = SubResource("StyleBoxFlat_sq8p8")
+Button/styles/pressed = SubResource("StyleBoxFlat_2dlxq")
+CheckButton/font_sizes/font_size = 24
+CheckButton/fonts/font = ExtResource("2_wb0k0")
+CheckButton/icons/checked = ExtResource("2_lkgl5")
+CheckButton/icons/unchecked = ExtResource("3_muglc")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_p00yi")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_p00yi")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_p00yi")
+HBoxContainer/constants/separation = 8
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_43g67")
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 92
+Panel/styles/panel = SubResource("StyleBoxFlat_lcl5r")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_gxius")
+RichTextLabel/constants/line_separation = 2
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/bold_italics_font_size = 24
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/mono_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = ExtResource("1_43g67")
+RichTextLabel/fonts/normal_font = ExtResource("2_wb0k0")
+VBoxContainer/constants/separation = 8

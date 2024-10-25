@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxa0ce87qlniq"]
+
+[ext_resource type="Texture2D" uid="uid://dx37dnvrlyiv5" path="res://Wordle Logo.png" id="1_pwbee"]
+[ext_resource type="Script" path="res://src/main/cs/Button.cs" id="2_yqxt4"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("1_pwbee")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_yqxt4")
+
+[connection signal="pressed" from="." to="." method="_OnButtonPressed"]

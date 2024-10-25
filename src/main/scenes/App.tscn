@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2b5rl2gj8ior"]
+
+[ext_resource type="Script" path="res://src/main/cs/App.cs" id="1_f8ro1"]
+[ext_resource type="PackedScene" path="res://src/main/scenes/TitleScreen.tscn" id="2_8bwrj"]
+
+[node name="App" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8ro1")
+
+[node name="Title Screen" parent="." instance=ExtResource("2_8bwrj")]
+layout_mode = 2

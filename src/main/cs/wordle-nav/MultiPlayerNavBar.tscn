@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://i8ievxhjegdv"]
+
+[ext_resource type="Theme" uid="uid://d2q01bxkxq7vm" path="res://src/main/cs/wordle-nav/themes/WordleNav.tres" id="1_gumq5"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-nav/MultiPlayerNavBar.cs" id="2_clpyg"]
+[ext_resource type="Texture2D" uid="uid://cc4amrod5glcl" path="res://src/main/resources/icons/menu-line.svg" id="3_0lym6"]
+[ext_resource type="FontFile" uid="uid://dr1j2r8o1j6yl" path="res://src/main/resources/fonts/KarnakPro-CondensedBlack.ttf" id="4_c7241"]
+[ext_resource type="Texture2D" uid="uid://mvwlfnncomxv" path="res://src/main/resources/icons/question-circle-line.svg" id="5_6yjt2"]
+[ext_resource type="Texture2D" uid="uid://denib03jbk2bs" path="res://src/main/resources/icons/analytics-line.svg" id="6_vhj5v"]
+[ext_resource type="Texture2D" uid="uid://cn8bvce6wiuf" path="res://src/main/resources/icons/settings-cog.svg" id="7_r8crw"]
+
+[node name="NavBar" type="VBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource("1_gumq5")
+alignment = 1
+script = ExtResource("2_clpyg")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_gumq5")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="NavItems" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_gumq5")
+alignment = 1
+
+[node name="LeftAlign" type="HBoxContainer" parent="Margin/NavItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gumq5")
+
+[node name="Menu" type="TextureButton" parent="Margin/NavItems/LeftAlign"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_gumq5")
+texture_normal = ExtResource("3_0lym6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CenterAlign" type="HBoxContainer" parent="Margin/NavItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gumq5")
+alignment = 1
+
+[node name="Margin" type="MarginContainer" parent="Margin/NavItems/CenterAlign"]
+layout_mode = 2
+theme = ExtResource("1_gumq5")
+theme_override_constants/margin_top = 8
+
+[node name="Title" type="Label" parent="Margin/NavItems/CenterAlign/Margin"]
+layout_mode = 2
+theme = ExtResource("1_gumq5")
+theme_override_fonts/font = ExtResource("4_c7241")
+theme_override_font_sizes/font_size = 60
+text = "A Wordle Game
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RightAlign" type="HBoxContainer" parent="Margin/NavItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gumq5")
+alignment = 2
+
+[node name="Help" type="TextureButton" parent="Margin/NavItems/RightAlign"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_gumq5")
+texture_normal = ExtResource("5_6yjt2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Stats" type="TextureButton" parent="Margin/NavItems/RightAlign"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_gumq5")
+texture_normal = ExtResource("6_vhj5v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Config" type="TextureButton" parent="Margin/NavItems/RightAlign"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_gumq5")
+texture_normal = ExtResource("7_r8crw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Border" type="Panel" parent="."]
+layout_mode = 2
+theme = ExtResource("1_gumq5")
+
+[connection signal="pressed" from="Margin/NavItems/LeftAlign/Menu" to="." method="_OnMenuPressed"]
+[connection signal="pressed" from="Margin/NavItems/RightAlign/Help" to="." method="_OnHelpPressed"]
+[connection signal="pressed" from="Margin/NavItems/RightAlign/Stats" to="." method="_OnStatsPressed"]
+[connection signal="pressed" from="Margin/NavItems/RightAlign/Config" to="." method="_OnConfigPressed"]

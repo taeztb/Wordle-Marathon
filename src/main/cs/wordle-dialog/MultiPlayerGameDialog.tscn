@@ -1,0 +1,403 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwyj5yn2myee1"]
+
+[ext_resource type="Theme" uid="uid://qxhbpqwnda5" path="res://src/main/cs/wordle-dialog/themes/WordleDialog.tres" id="1_fl82k"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-dialog/Dialog.cs" id="2_qvcq2"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-dialog/MultiPlayerStatsData.cs" id="3_ufu4p"]
+[ext_resource type="Script" path="res://src/main/cs/wordle-dialog/MultiPlayerOptionsData.cs" id="4_1g034"]
+[ext_resource type="Texture2D" uid="uid://clin0j0lx7tfj" path="res://src/main/resources/icons/close-line.svg" id="5_v1mhk"]
+[ext_resource type="FontFile" uid="uid://dr1j2r8o1j6yl" path="res://src/main/resources/fonts/KarnakPro-CondensedBlack.ttf" id="6_h2fpk"]
+[ext_resource type="FontFile" uid="uid://qjacn1t33u4d" path="res://src/main/resources/fonts/KarnakPro-Book.ttf" id="7_5nkhs"]
+[ext_resource type="FontFile" uid="uid://bew2q8agbxgkf" path="res://src/main/resources/fonts/LibreFranklin-Regular.ttf" id="8_ttkbb"]
+[ext_resource type="FontFile" uid="uid://bn0r5u2fxfvxn" path="res://src/main/resources/fonts/LibreFranklinBold.ttf" id="9_5t2nr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig8tg"]
+bg_color = Color(0.227451, 0.227451, 0.227451, 1)
+
+[node name="StatsDialog" type="PanelContainer"]
+top_level = true
+clip_contents = true
+custom_minimum_size = Vector2(780, 960)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -480.0
+offset_right = 390.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = ExtResource("1_fl82k")
+script = ExtResource("2_qvcq2")
+
+[node name="StatsData" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("3_ufu4p")
+
+[node name="OptionsData" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("4_1g034")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_fl82k")
+texture_normal = ExtResource("5_v1mhk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 24
+
+[node name="Header" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Margin/Content/Header"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("6_h2fpk")
+theme_override_font_sizes/font_size = 48
+text = "Statistics"
+
+[node name="Body" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+
+[node name="StatsSection" type="HBoxContainer" parent="Margin/Content/Body"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="GamesStat" type="VBoxContainer" parent="Margin/Content/Body/StatsSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 0
+
+[node name="Stat" type="Label" parent="Margin/Content/Body/StatsSection/GamesStat"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("7_5nkhs")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Margin/Content/Body/StatsSection/GamesStat"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("8_ttkbb")
+theme_override_font_sizes/font_size = 16
+text = "Played
+"
+horizontal_alignment = 1
+
+[node name="WinStat" type="VBoxContainer" parent="Margin/Content/Body/StatsSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 0
+
+[node name="Stat" type="Label" parent="Margin/Content/Body/StatsSection/WinStat"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("7_5nkhs")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Margin/Content/Body/StatsSection/WinStat"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("8_ttkbb")
+theme_override_font_sizes/font_size = 16
+text = "Win %"
+horizontal_alignment = 1
+
+[node name="StreakStat" type="VBoxContainer" parent="Margin/Content/Body/StatsSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 0
+
+[node name="Stat" type="Label" parent="Margin/Content/Body/StatsSection/StreakStat"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("7_5nkhs")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Margin/Content/Body/StatsSection/StreakStat"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("8_ttkbb")
+theme_override_font_sizes/font_size = 16
+text = "Current Streak"
+horizontal_alignment = 1
+
+[node name="MaxStat" type="VBoxContainer" parent="Margin/Content/Body/StatsSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 0
+
+[node name="Stat" type="Label" parent="Margin/Content/Body/StatsSection/MaxStat"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("7_5nkhs")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Margin/Content/Body/StatsSection/MaxStat"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("8_ttkbb")
+theme_override_font_sizes/font_size = 16
+text = "Max Streak
+"
+horizontal_alignment = 1
+
+[node name="GuessSection" type="VBoxContainer" parent="Margin/Content/Body"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="GuessHeader" type="Label" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_fonts/font = ExtResource("9_5t2nr")
+text = "Guess Distribution"
+
+[node name="Guess1" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess1"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess1"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess1/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess2" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess2/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess3" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess3"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess3"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess3/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess4" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess4/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess5" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess5"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess5"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess5/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Guess6" type="HBoxContainer" parent="Margin/Content/Body/GuessSection"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+
+[node name="Tag" type="Label" parent="Margin/Content/Body/GuessSection/Guess6"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="PanelContainer" parent="Margin/Content/Body/GuessSection/Guess6"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig8tg")
+
+[node name="Label" type="Label" parent="Margin/Content/Body/GuessSection/Guess6/Bar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_fl82k")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Content/Buttons"]
+layout_mode = 2
+theme = ExtResource("1_fl82k")
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="Menu" type="Button" parent="Margin/Content/Buttons/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_fl82k")
+text = "Menu"
+
+[node name="Replay" type="Button" parent="Margin/Content/Buttons/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_fl82k")
+text = "Play Again?"
+
+[node name="Quit" type="Button" parent="Margin/Content/Buttons/Buttons"]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_fl82k")
+text = "Quit"
+
+[node name="Footer" type="RichTextLabel" parent="Margin/Content"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_fl82k")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Missouri - Future Business Leaders of America | 2023 State Leadership Conference Project Submission | Lee's Summit North High School Chapter President Thomas Berhe."
+fit_content = true
+
+[connection signal="pressed" from="CloseButton" to="." method="_OnCloseButtonPressed"]
+[connection signal="pressed" from="Margin/Content/Buttons/Buttons/Menu" to="OptionsData" method="_OnMenuPressed"]
+[connection signal="pressed" from="Margin/Content/Buttons/Buttons/Replay" to="OptionsData" method="_OnReplayPressed"]
+[connection signal="pressed" from="Margin/Content/Buttons/Buttons/Quit" to="OptionsData" method="_OnQuitPressed"]

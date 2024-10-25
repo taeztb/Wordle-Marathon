@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://xus7tsis4kv1"]
+
+[ext_resource type="FontFile" uid="uid://bn0r5u2fxfvxn" path="res://src/main/resources/fonts/LibreFranklinBold.ttf" id="1_iy7bf"]
+[ext_resource type="StyleBox" uid="uid://5tid4unfh0rh" path="res://src/main/resources/styles/BlankPopup.tres" id="2_onsu5"]
+
+[resource]
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 1)
+LineEdit/font_sizes/font_size = 12
+LineEdit/fonts/font = ExtResource("1_iy7bf")
+LineEdit/styles/focus = ExtResource("2_onsu5")
+LineEdit/styles/normal = ExtResource("2_onsu5")
+LineEdit/styles/read_only = ExtResource("2_onsu5")

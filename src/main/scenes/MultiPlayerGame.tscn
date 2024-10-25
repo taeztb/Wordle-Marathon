@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8t0vl2jhira3"]
+
+[ext_resource type="Script" path="res://src/main/cs/wordle-logic/MultiPlayerGame.cs" id="1_2yj10"]
+[ext_resource type="PackedScene" uid="uid://c53qvfub5nnfd" path="res://src/main/cs/wordle-ai/WordleAI.tscn" id="2_3h45d"]
+[ext_resource type="FontFile" uid="uid://dr1j2r8o1j6yl" path="res://src/main/resources/fonts/KarnakPro-CondensedBlack.ttf" id="4_hi87m"]
+[ext_resource type="PackedScene" uid="uid://i8ievxhjegdv" path="res://src/main/cs/wordle-nav/MultiPlayerNavBar.tscn" id="4_mj3w4"]
+[ext_resource type="PackedScene" path="res://src/main/scenes/gui/Reel.tscn" id="5_j45mw"]
+[ext_resource type="PackedScene" path="res://src/main/cs/wordle-ui/MultiPlayerGrid.tscn" id="5_oehlk"]
+
+[node name="WordleGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2yj10")
+
+[node name="WordleAI" parent="." instance=ExtResource("2_3h45d")]
+layout_mode = 1
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 108
+
+[node name="Reel" parent="Margin" instance=ExtResource("5_j45mw")]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 64.0
+offset_right = 1856.0
+offset_bottom = 1016.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+
+[node name="NavBar" parent="Content" instance=ExtResource("4_mj3w4")]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container" type="HBoxContainer" parent="Content/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 108
+alignment = 1
+
+[node name="Panel1" type="VBoxContainer" parent="Content/Scroll/Container"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Heading" type="HBoxContainer" parent="Content/Scroll/Container/Panel1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Content/Scroll/Container/Panel1/Heading"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_hi87m")
+theme_override_font_sizes/font_size = 72
+text = "Human"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Grid" parent="Content/Scroll/Container/Panel1" instance=ExtResource("5_oehlk")]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Content/Scroll/Container"]
+layout_mode = 2
+theme_override_constants/margin_top = 88
+
+[node name="Label" type="Label" parent="Content/Scroll/Container/Margin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hi87m")
+theme_override_font_sizes/font_size = 72
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel2" type="VBoxContainer" parent="Content/Scroll/Container"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 32
+
+[node name="Heading" type="HBoxContainer" parent="Content/Scroll/Container/Panel2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Content/Scroll/Container/Panel2/Heading"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hi87m")
+theme_override_font_sizes/font_size = 72
+text = "Computer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AI" parent="Content/Scroll/Container/Panel2" instance=ExtResource("5_oehlk")]
+layout_mode = 2
+mouse_filter = 2

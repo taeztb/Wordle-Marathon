@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=3 format=3]
+
+[ext_resource type="FontFile" uid="uid://bn0r5u2fxfvxn" path="res://src/main/resources/fonts/LibreFranklinBold.ttf" id="1_u4pxw"]
+[ext_resource type="StyleBox" uid="uid://cpd7xcy2q858" path="res://src/main/cs/wordle-ui/styles/BlankCell.tres" id="2_po65w"]
+
+[resource]
+GridContainer/constants/h_separation = 0
+GridContainer/constants/v_separation = 8
+HBoxContainer/constants/separation = 8
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
+LineEdit/colors/selection_color = Color(1, 1, 1, 1)
+LineEdit/constants/caret_width = 0
+LineEdit/constants/minimum_character_width = 0
+LineEdit/constants/outline_size = 0
+LineEdit/font_sizes/font_size = 48
+LineEdit/fonts/font = ExtResource("1_u4pxw")
+LineEdit/icons/clear = null
+LineEdit/styles/focus = ExtResource("2_po65w")
+LineEdit/styles/normal = ExtResource("2_po65w")
+LineEdit/styles/read_only = ExtResource("2_po65w")
